@@ -1,22 +1,77 @@
-import { useEffect, useState } from 'react'
+import { Eye, EyeClosed } from "lucide-react";
+import { useState } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { EMAIL_REGEX } from "./utils/valildation/regex";
+
+type Inputs = {
+  username: string;
+  email: string;
+  password: string;
+};
 
 function App() {
-  const [message, setMessage] = useState('Loading...')
-
-  useEffect(() => {
-    const base = import.meta.env.VITE_API_BASE || ''
-    fetch(`${base}/api/hello`)
-      .then(r => r.json())
-      .then(d => setMessage(d.message))
-      .catch(e => setMessage(String(e)))
-  }, [])
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>({
+    mode: "onSubmit", // 初回の検証は submit 時のみ
+    reValidateMode: "onSubmit", // 送信後の再検証も submit 時のみ
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
-    <div style={{ padding: 24 }}>
-      <h1>{message}</h1>
-      <p>React → Python API の疎通OKなら "Hello from Python" が表示されます。</p>
-    </div>
-  )
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        type="text"
+        placeholder="田中太郎"
+        {...register("username", {
+          required: {
+            value: true,
+            message: "ユーザー名の入力は必須です。",
+          },
+        })}
+      />
+      {errors.username && <span>{errors.username.message}</span>}
+
+      <input
+        type="email"
+        placeholder="email@example.com"
+        {...register("email", {
+          required: {
+            value: true,
+            message: "メールアドレスの入力は必須です。",
+          },
+          pattern: {
+            value: EMAIL_REGEX,
+            message:
+              "入力内容に不備があるようです。メールアドレスを正しく入力してください。",
+          },
+        })}
+      />
+      {errors.email && <span>{errors.email.message}</span>}
+
+      <input
+        type={showPassword ? "text" : "password"}
+        {...register("password", {
+          required: { value: true, message: "パスワードの入力は必須です。" },
+          minLength: {
+            value: 6,
+            message:
+              "入力内容に不備があるようです。パスワードは6文字以上で入力してください。",
+          },
+        })}
+      />
+      {errors.password && <span>{errors.password.message}</span>}
+
+      <button type="button" onClick={() => setShowPassword((prev) => !prev)}>
+        {showPassword ? <Eye /> : <EyeClosed />}
+      </button>
+
+      <button>登録</button>
+    </form>
+  );
 }
 
-export default App
+export default App;
