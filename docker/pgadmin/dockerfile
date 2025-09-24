@@ -1,0 +1,10 @@
+FROM dpage/pgadmin4:latest
+USER root
+# エントリポイントスクリプトをコピー
+COPY ./entrypoint.sh /custom-entrypoint.sh
+
+# 実行権限を付与
+RUN chmod +x /custom-entrypoint.sh
+
+# エントリポイントを差し替え
+ENTRYPOINT ["/custom-entrypoint.sh"]
