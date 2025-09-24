@@ -1,0 +1,15 @@
+# 自動生成物・キャッシュ
+dist
+build
+coverage
+node_modules
+.next
+out
+.turbo
+.pnpm-store
+# Python
+.venv
+__pycache__
+.pytest_cache
+.mypy_cache
+

@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import * as React from 'react';
+import { createRoot } from 'react-dom/client';
+import { App } from './app';
+import './index.css';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+const root = document.getElementById('root');
+if (!root) throw new Error('ルート要素が見つかりません。');
+
+createRoot(root).render(
+  <React.StrictMode>
     <App />
-  </StrictMode>,
-)
+  </React.StrictMode>,
+);
