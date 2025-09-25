@@ -9,12 +9,12 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         related_name="tasks",
     )
-    title = models.TextField()
-    description = models.TextField(blank=True)
+    title = models.TextField(verbose_name="タイトル", max_length=100)
+    description = models.TextField(verbose_name="タスク詳細", blank=True)
 
     # 必須の監査項目
-    created_at = models.DateTimeField(auto_now_add=True)  # 生成時自動
-    updated_at = models.DateTimeField(auto_now=True)      # 更新時自動
+    created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)  # 生成時自動
+    updated_at = models.DateTimeField(verbose_name="更新日時", auto_now=True)      # 更新時自動
 
     class Meta:
         db_table = "tasks_task"
