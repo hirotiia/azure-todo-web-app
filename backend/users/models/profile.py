@@ -9,7 +9,7 @@ class Profile(models.Model):
         on_delete=models.CASCADE,
         related_name="profile"
     )
-    user_name = models.CharField(verbose_name="ユーザー名",max_length=30, blank=True, default="")
+    username = models.CharField(verbose_name="ユーザー名", max_length=30)
     avatar_url = models.URLField(verbose_name="アバターURL", blank=True, default="")
     bio = models.TextField(verbose_name="自己紹介", blank=True, default="")
     created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)

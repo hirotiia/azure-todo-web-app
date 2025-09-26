@@ -1,2 +1,3 @@
 from .user import User
-__all__ = ["User"]
+from .profile import Profile
+__all__ = ["User", "Profile"]
