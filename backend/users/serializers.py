@@ -30,7 +30,7 @@ class RegisterSerializer(serializers.Serializer):
             user = User.objects.create_user(
                 email=validated_data["email"],
                 password=validated_data["password"],
-                is_active=True,  # メール確認を後で入れるなら False に
+                is_active=True,
             )
             Profile.objects.create(user=user, username=validated_data["username"])
         return user
