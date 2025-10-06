@@ -7,6 +7,7 @@ import { default as AppRoot } from './routes/app/root';
 
 const convert = (queryClient: QueryClient) => (m: any) => {
   const { clientLoader, clientAction, default: Component, ...rest } = m;
+
   return {
     ...rest,
     loader: clientLoader?.(queryClient),
