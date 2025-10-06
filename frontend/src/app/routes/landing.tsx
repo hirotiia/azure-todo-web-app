@@ -1,6 +1,5 @@
 import { Head } from '@/components/seo';
 import { Link } from '@/components/ui/link';
-import { Button } from '@mui/material';
 
 function LandingRoute() {
   return (
@@ -9,9 +8,7 @@ function LandingRoute() {
       <main>
         <h1>Azure Todo App</h1>
         <Link to="/auth/register">サインアップ</Link>
-        <Button variant="contained" color="error">
-          error
-        </Button>
+        <Link to="/app/">アプリへ</Link>
       </main>
     </>
   );
