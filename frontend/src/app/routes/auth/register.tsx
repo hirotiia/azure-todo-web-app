@@ -1,5 +1,6 @@
 import { EMAIL_REGEX } from '@/utils/valildation/regex';
-import { Eye, EyeClosed } from 'lucide-react';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 
@@ -148,7 +149,7 @@ const RegisterRoute = () => {
         {errors.password && <span>{errors.password.message}</span>}
 
         <button type="button" onClick={() => setShowPassword((prev) => !prev)}>
-          {showPassword ? <Eye /> : <EyeClosed />}
+          {showPassword ? <Visibility /> : <VisibilityOff />}
         </button>
 
         <button>登録</button>
