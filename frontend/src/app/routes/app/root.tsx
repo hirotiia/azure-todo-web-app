@@ -1,6 +1,6 @@
 import { Head } from '@/components/seo';
 import { Link } from '@/components/ui/link';
-import { Button } from '@mui/material';
+import { TodoPanel } from '@/features/todo/component/todo-panel';
 
 function AppRoute() {
   return (
@@ -12,9 +12,7 @@ function AppRoute() {
       <main>
         <h1>Azure Todo App</h1>
         <Link to="/auth/register">サインアップ</Link>
-        <Button variant="contained" color="error">
-          error
-        </Button>
+        <TodoPanel />
       </main>
     </>
   );
