@@ -18,7 +18,7 @@ export const paths = {
       path: '/app',
       getHref: () => '/app',
     },
-    dashboard: {
+    todo: {
       path: '',
       getHref: () => '/app',
     },

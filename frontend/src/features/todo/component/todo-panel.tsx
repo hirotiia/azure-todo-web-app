@@ -1,11 +1,11 @@
 import { TodoAddForm } from './todo-add-form';
-import { TodoList } from './todo-list';
+import { EnhancedTable } from './todo-tabale';
 
 export const TodoPanel = () => {
   return (
     <>
       <TodoAddForm />
-      <TodoList />
+      <EnhancedTable />
     </>
   );
 };

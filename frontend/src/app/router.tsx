@@ -31,9 +31,15 @@ export const createAppRouter = (queryClient: QueryClient) =>
       lazy: () => import('./routes/auth/login').then(convert(queryClient)),
     },
     {
-      path: paths.app.root.path,
+      path: paths.app.todo.path,
       element: <AppRoot />,
-      children: [],
+      children: [
+        {
+          path: paths.app.root.path,
+          lazy: () =>
+            import('./routes/app/todo/todo').then(convert(queryClient)),
+        },
+      ],
     },
   ]);
 
