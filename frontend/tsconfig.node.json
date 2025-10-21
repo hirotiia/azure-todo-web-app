@@ -23,7 +23,10 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Type checking */
+    "types": ["vitest", "node"]
   },
   "include": ["vite.config.ts"]
 }
