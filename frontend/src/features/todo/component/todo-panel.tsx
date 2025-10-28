@@ -9,9 +9,9 @@ export const TodoPanel = () => {
         sx={{
           color: 'neutral.dark',
           bgcolor: 'neutral.light',
-          ':hover': { bgcolor: 'neutral.main', color: 'neutral.contrastText' },
+          '&:hover': { bgcolor: 'neutral.main', color: 'neutral.contrastText' },
         }}
-        variant="contained"
+        variant="outlined"
       >
         Add Todo
       </Button>
