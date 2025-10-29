@@ -1,4 +1,4 @@
-import { ContentLayout } from '@/components/layout/content-layout';
+import { ContentLayout } from '@/components/layouts/content-layout';
 import { Head } from '@/components/seo';
 import { TodoPanel } from '@/features/todo/component/todo-panel';
 

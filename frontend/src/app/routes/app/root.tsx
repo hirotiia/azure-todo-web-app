@@ -1,4 +1,4 @@
-import { DashboardLayout } from '@/components/layout/dashboard-layout';
+import { DashboardLayout } from '@/components/layouts/dashboard-layout';
 import { Outlet } from 'react-router';
 
 function AppRoute() {
