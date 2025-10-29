@@ -1,47 +1,53 @@
 import { createTheme } from '@mui/material/styles';
 
-export const theme = createTheme({
+const PRIMARY_COLOR = {
+  dark: '#3700B3',
+  main: '#6200EE',
+  light: '#BB86FC',
+  contrastText: '#FFFFFF',
+};
+
+const ERROR_COLOR = {
+  main: '#B00020',
+};
+export const lightTheme = createTheme({
   palette: {
-    neutral: {
-      dark: '#101010', // メインテキスト
-      main: '#999999', // サブテキスト
-      light: '#F5F5F5', // 背景
-      contrastText: '#FFFFFF', // 白文字
+    mode: 'light',
+    primary: {
+      main: PRIMARY_COLOR.main,
+      dark: PRIMARY_COLOR.dark,
+      light: PRIMARY_COLOR.light,
+      contrastText: PRIMARY_COLOR.contrastText,
+    },
+    error: {
+      main: ERROR_COLOR.main,
+    },
+    background: {
+      default: '#FFFFFF',
+      paper: '#F5F5F5',
     },
   },
-  components: {
-    MuiButton: {
-      defaultProps: {
-        color: 'neutral',
-      },
-      styleOverrides: {
-        root: { textTransform: 'none' },
-      },
-      variants: [
-        // 👇 variant + color の組み合わせでスタイルを追加
-        {
-          props: { color: 'neutral', variant: 'contained' },
-          style: ({ theme }) => ({
-            backgroundColor: theme.palette.neutral.dark, // ← dark を参照！
-            color: theme.palette.neutral.contrastText,
-            '&:hover': {
-              backgroundColor: theme.palette.neutral.main,
-            },
-          }),
-        },
-        {
-          props: { color: 'neutral', variant: 'outlined' },
-          style: ({ theme }) => ({
-            color: theme.palette.neutral.dark,
-            borderColor: theme.palette.neutral.dark,
-            '&:hover': {
-              color: theme.palette.neutral.contrastText,
-              backgroundColor: theme.palette.neutral.dark,
-              borderColor: theme.palette.neutral.dark,
-            },
-          }),
-        },
-      ],
+});
+
+export const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: PRIMARY_COLOR.main,
+      dark: PRIMARY_COLOR.dark,
+      light: PRIMARY_COLOR.light,
+      contrastText: PRIMARY_COLOR.contrastText,
+    },
+    text: {
+      primary: '#FFFFFF',
+      secondary: '#BBBBBB',
+    },
+    error: {
+      main: ERROR_COLOR.main,
+    },
+    background: {
+      default: '#121212',
+      paper: '#1E1E1E',
     },
   },
 });
